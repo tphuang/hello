@@ -1,0 +1,57 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'jetty'
+
+/**
+ * Repositories
+ * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#sec:repositories
+ */
+repositories {
+    mavenCentral()
+}
+
+
+/**
+ * Declare dependencies
+ * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#sec:how_to_declare_your_dependencies
+ */
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.1.6'
+
+    testCompile 'junit:junit:4.11'
+
+    runtime 'com.google.guava:guava:17.0'
+}
+
+mainClassName = 'Main'
+
+/**
+ * description
+ */
+
+check.dependsOn 'integrationTest'
+task integrationTest (type: Test, dependsOn: test) {
+	include '**/**/*IntegrationTest.java'
+	doFirst{
+		jettyRun.stopKey = 'stopKey'
+		jettyRun.stopPort = 65321
+		jettyRun.daemon = true
+		jettyRun.execute()
+	}
+	doLast{
+		jettyRun.stopKey = 'stopKey'
+		jettyRun.stopPort = 65321
+		jettyStop.execute()
+	}
+}
+
+
+
+
+
+
+
+
+
+
