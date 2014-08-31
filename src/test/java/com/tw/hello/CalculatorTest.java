@@ -16,7 +16,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void should_get_zero_when_zero_add_zero() throws Exception {
+    public void should_get_0_when_0_add_0() throws Exception {
         assertExprResult("0+0", "0");
     }
 
@@ -26,27 +26,27 @@ public class CalculatorTest {
     }
 
     @Test
-    public void should_get_1_when_2_mul_1() throws Exception {
+    public void should_get_1_when_2_minux_1() throws Exception {
         assertExprResult("2-1", "1");
     }
 
     @Test
-    public void should_get_1_point_44_when_1_point_2_times_1_point_2() throws Exception {
+    public void should_get_1_dot_44_when_1_dot_2_multiply_1_dot_2() throws Exception {
         assertExprResult("1.2*1.2", "1.44");
     }
 
     @Test
-    public void should_get_1_point_2_when_1_point_2_div_1_point_2() throws Exception {
+    public void should_get_1_dot_2_when_1_dot_2_div_1_dot_2() throws Exception {
         assertExprResult("1.44/1.2", "1.2");
     }
 
     @Test
-    public void should_get_6_when_1_add_2__mul_3_min_3() throws Exception {
+    public void should_get_6_when_1_add_2_multiply_3_minux_3() throws Exception {
         assertExprResult("1+2*3-3", "6");
     }
 
     private void assertExprResult(String expr, String result) {
-        String actualResult = calculator.cal(expr);
+        String actualResult = calculator.calculate(expr);
 
         assertThat(actualResult, is(result));
     }

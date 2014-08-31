@@ -7,14 +7,14 @@ public class Calculator {
 
     private final static Pattern operatorPattern = Pattern.compile("(\\+|-|/|\\*)");
     private final static Pattern numbersPattern = Pattern.compile("\\d+(\\.\\d+)?");
-    private NumberFormat nf;
+    private NumberFormat numberFormat;
 
     public Calculator() {
-        nf = NumberFormat.getNumberInstance();
-        nf.setMaximumFractionDigits(4);
+        numberFormat = NumberFormat.getNumberInstance();
+        numberFormat.setMaximumFractionDigits(4);
     }
 
-    public String cal(String expr) {
+    public String calculate(String expr) {
         String[] numbers = operatorPattern.split(expr);
         String[] operators = numbersPattern.split(expr);
 
@@ -38,6 +38,6 @@ public class Calculator {
             }
         }
 
-        return nf.format(result);
+        return numberFormat.format(result);
     }
 }
