@@ -1,4 +1,4 @@
-package com.tw.hello;
+package com.tw.hello.exceptions;
 
 public class MyException extends Exception{
     public MyException(){
