@@ -17,6 +17,15 @@ repositories {
  * @see http://www.gradle.org/docs/current/userguide/userguide_single.html#sec:how_to_declare_your_dependencies
  */
 dependencies {
+    def springFrameworkVersion = '4.0.6.RELEASE'
+    compile "org.springframework:spring-web:${springFrameworkVersion}",
+            "org.springframework:spring-webmvc:${springFrameworkVersion}",
+            "org.springframework:spring-beans:${springFrameworkVersion}",
+            "org.springframework:spring-context:${springFrameworkVersion}",
+            "org.springframework:spring-orm:${springFrameworkVersion}",
+            "org.springframework:spring-test:${springFrameworkVersion}",
+            "org.springframework:spring-jdbc:${springFrameworkVersion}"
+
     compile 'org.codehaus.groovy:groovy-all:2.1.6'
 
     testCompile 'junit:junit:4.11'
@@ -46,8 +55,21 @@ task integrationTest (type: Test, dependsOn: test) {
 	}
 }
 
+task hello << {
+    println 'Hello world!'
+}
 
+task upper << {
+    String someString = 'mY_nAmE'
+    println "Original: " + someString
+    println "Upper case: " + someString.toUpperCase()
+}
 
+4.times { counter ->
+    task "task$counter" << {
+        println "I'm task number $counter"
+    }
+}
 
 
 
