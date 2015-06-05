@@ -29,6 +29,8 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.1.6'
     compile 'dom4j:dom4j:1.6.1'
     compile 'com.google.code.gson:gson:2.3.1'
+    compile 'commons-codec:commons-codec:1.10'
+
 
     testCompile 'junit:junit:4.11'
 
