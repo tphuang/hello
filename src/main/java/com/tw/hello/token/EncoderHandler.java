@@ -1,4 +1,4 @@
-package com.tw.hello.base64;
+package com.tw.hello.token;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
