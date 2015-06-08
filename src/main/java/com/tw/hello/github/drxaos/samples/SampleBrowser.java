@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-import io.github.drxaos.browser.FxBrowser;
+import com.tw.hello.github.drxaos.browser.FxBrowser;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -28,11 +28,12 @@ public class SampleBrowser {
                 panel.setLayout(new BorderLayout());
 
                 {
-                    fxBrowser = new FxBrowser("http://ya.ru/");
+                    fxBrowser = new FxBrowser("https://www.baidu.com");
                     panel.add(fxBrowser, BorderLayout.CENTER);
                     fxBrowser.addOnLoaderStateChanged(new ChangeListener<Worker.State>() {
                         @Override
-                        public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldValue, Worker.State newValue) {
+                        public void changed(ObservableValue<? extends Worker.State> observable,
+                                            Worker.State oldValue, Worker.State newValue) {
                             statusbar.setText(newValue.name());
                             if (newValue == Worker.State.SUCCEEDED) {
                                 frame.setTitle(fxBrowser.getTitle());

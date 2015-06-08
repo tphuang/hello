@@ -5,8 +5,8 @@ import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
 
-import io.github.drxaos.browser.FxBrowser;
-import io.github.drxaos.browser.WebAppURLStreamHandlerFactory;
+import com.tw.hello.github.drxaos.browser.FxBrowser;
+import com.tw.hello.github.drxaos.browser.WebAppURLStreamHandlerFactory;
 
 public class Sample1 {
 
@@ -23,7 +23,7 @@ public class Sample1 {
                 panel.setBackground(Color.blue);
                 panel.setLayout(new BorderLayout());
 
-                FxBrowser webView = new FxBrowser("http://ya.ru/");
+                FxBrowser webView = new FxBrowser("https://www.baidu.com");
                 panel.add(webView, BorderLayout.CENTER);
 
                 JButton button = new JButton("Reload");
